@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Контакты</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="main.html">Главная</a></li>
+                <li><a href="info.html">Общая информация</a></li>
+                <li><a href="history.html">История</a></li>
+                <li><a href="film.html">Фильмография</a></li>
+                <li><a href="sources.html">Источники</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="store.html">Магазин</a></li>
+            </ul>
+        </nav>
+        <h1>Контакты</h1>
+    </header>
+
+    <main>
+        <!-- Контактная информация -->
+        <section class="contact-info">
+            <h2>Свяжитесь с нами</h2>
+            <div class="contact-card">
+                <p><b>Киселев Ярослав</b></p>
+                <p>Группа: БЭР2201</p>
+                <p>Email: <a href="mailto:kiselev.yaroslav@mtt.ru">kiselev.yaroslav@mtt.ru</a></p>
+                <p>Телефон: +7 (495) 123-4567</p>
+                <p>Адрес: Москва, улица Народного Ополчения, 32 (МТУСИ)</p>
+            </div>
+        </section>
+
+        <!-- Карта -->
+        <section class="map-section">
+            <h2>Местоположение МТУСИ</h2>
+            <div id="map"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Фан-клуб The Beatles. Все права защищены.</p>
+    </footer>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+    <script>
+        // Инициализация Яндекс.Карты
+        ymaps.ready(function() {
+            var map = new ymaps.Map("map", {
+                center: [55.784197, 37.482472], // Координаты МТУСИ
+                zoom: 16,
+                controls: ['zoomControl', 'geolocationControl']
+            });
+
+            var placemark = new ymaps.Placemark(
+                [55.784197, 37.482472],
+                {
+                    hintContent: "МТУСИ",
+                    balloonContent: "Московский технический университет связи и информатики"
+                },
+                {
+                    preset: "islands#redDotIcon"
+                }
+            );
+
+            map.geoObjects.add(placemark);
+        });
+    </script>
+</body>
+</html>
